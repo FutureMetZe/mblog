@@ -8,9 +8,9 @@
                <#-- <li class="menu-item"><a href="${base}/about">关于我们</a></li>
                 <li class="menu-item"><a href="${base}/joinus">联系我们</a></li>
                 <li class="menu-item"><a href="${base}/faqs">常见问题</a></li>  -->
-                <li class="menu-item"><a href="#">关于我们</a></li>
-                <li class="menu-item"><a href="#">联系我们</a></li>
-                <li class="menu-item"><a href="#">常见问题</a></li>
+                <li class="menu-item"><a href="#">关于作者</a></li>
+                   <li class="menu-item"><a href="${base}/joinus">联系我</a></li>
+                   <li class="menu-item"><a href="${base}/faqs">常见问题</a></li>
                 <li>
                     <script>
                         var _hmt = _hmt || [];
@@ -29,7 +29,7 @@
         </div>
         <div class="footer-col footer-col-sns hidden-xs hidden-sm">
             <div class="footer-sns">
-                <span>Powered By <a href="#" target="_blank">Cocacolaugh</a></span>
+                <span>Powered By Cocacolaugh.</span>
             </div>
         </div>
     </div>
