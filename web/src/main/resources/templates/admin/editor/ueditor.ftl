@@ -23,7 +23,7 @@ $(function () {
         body_class: 'markdown-body',
         codesample_dialog_width: '600',
         codesample_dialog_height: '400',
-        block_formats: 'Paragraph=p;标题1=h4;标题2=h5;标题3=h6;Preformatted=pre',
+        block_formats: 'Paragraph=p;标题1=h2;标题2=h3;标题3=h4;标题4=h5;Preformatted=pre',
 
         content_css: [
             '${base}/dist/vendors/bootstrap/css/bootstrap.min.css',

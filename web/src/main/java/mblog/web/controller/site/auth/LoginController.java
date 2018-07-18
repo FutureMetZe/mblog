@@ -67,7 +67,7 @@ public class LoginController extends BaseController {
 
         try {
             SecurityUtils.getSubject().login(token);
-            SecurityUtils.getSubject().getSession().setTimeout(46400);
+            SecurityUtils.getSubject().getSession().setTimeout(10000000);//毫秒
 
             ret = Views.REDIRECT_USER;
         } catch (AuthenticationException e) {

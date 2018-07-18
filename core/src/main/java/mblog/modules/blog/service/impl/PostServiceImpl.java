@@ -170,7 +170,7 @@ public class PostServiceImpl implements PostService {
 
 		return page;
 	}
-	
+
 	@Override
 	public Page<PostVO> searchByTag(Pageable pageable, String tag) {
 		Page<PostVO> page = postDao.searchByTag(pageable, tag);

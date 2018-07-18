@@ -61,7 +61,7 @@ public class PostDaoImpl implements PostDaoCustom {
 	    SimpleHTMLFormatter formatter = new SimpleHTMLFormatter("<span style='color:red;'>", "</span>");
         QueryScorer queryScorer = new QueryScorer(luceneQuery);
         Highlighter highlighter = new Highlighter(formatter, queryScorer);
-        
+
 		List<Post> list = query.getResultList();
 	    List<PostVO> rets = new ArrayList<>(list.size());
 
