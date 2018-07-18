@@ -40,7 +40,7 @@
             </div>
             <div class="panel-footer operate">
                 <div class="hidden-xs">
-                    <div class="social-share" data-sites="weibo, wechat, facebook, twitter, google, qzone, qq"></div>
+                    <div class="social-share" data-sites="weibo, wechat, qzone, qq" ></div>
                 </div>
                 <div class="clearfix"></div>
             </div>

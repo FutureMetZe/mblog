@@ -20,12 +20,28 @@ import java.util.Map;
  */
 @Component
 public class AppContext {
-	
+
+	/**
+	 * 判断是linux系统还是其他系统
+	 * 如果是Linux系统，返回true，否则返回false
+	 */
+	public static boolean isLinux() {
+		return System.getProperty("os.name").toLowerCase().indexOf("linux") >= 0;
+	}
+
+	private static String getDataPath(){
+		if(isLinux()){
+			return "/usr/local/tomcat/mblog/data/";
+		}else{
+			return "d:/data/mblog/";
+		}
+	}
+
 	/*
 	 * 文件存储-根目录
 	 */
-	@Value("${site.store.root:/data/mblog/}")
-	String root = "/data/mblog";
+	//@Value("${site.store.root:/data/mblog/}")
+	String root = getDataPath();
 	
 	/*
 	 * 文件存储-原文件目录
