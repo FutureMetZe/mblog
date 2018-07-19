@@ -187,7 +187,14 @@ public class UserServiceImpl implements UserService {
 		}
 		return rets;
 	}
-	
+
+	@Override
+	@Transactional
+	public void updatePostSize(Long authorId, String type) {
+        User user = userDao.getOne(authorId);
+        user.setPosts(user.getPosts()+1);
+	}
+
 	@Override
 	public UserVO getByUsername(String username) {
 		User po = userDao.findByUsername(username);

@@ -108,4 +108,10 @@ public interface UserService {
 	Map<Long, UserVO> findMapByIds(Set<Long> ids);
 
 	List<UserVO> findHotUserByfans();
+
+	/**
+	 * 更新博客數量
+	 * @param authorId
+	 */
+    void updatePostSize(Long authorId, String type);
 }
