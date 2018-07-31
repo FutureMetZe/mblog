@@ -39,5 +39,5 @@ ${site_metas}
 <script type="text/javascript" src="${base}/theme/default/js/sea.config.js"></script>
 
 <!-- Favicons -->
-<link rel="apple-touch-icon-precomposed" href="http://119.29.138.236/dist/images/logo.png"/>
-<link rel="shortcut icon" href="http://119.29.138.236/dist/images/logo.png"/>
+<link rel="apple-touch-icon-precomposed" href="${base}/favicon.ico"/>
+<link rel="shortcut icon" href="${base}/favicon.ico"/>
