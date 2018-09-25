@@ -12,6 +12,7 @@ package mblog.web.controller.site;
 import javax.servlet.http.HttpServletRequest;
 
 import mblog.base.utils.ClientIp;
+import mblog.boot.CheckMobile;
 import mblog.modules.user.entity.Visitor;
 import mblog.modules.user.service.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,8 @@ public class IndexController extends BaseController{
 		int pn = ServletRequestUtils.getIntParameter(request, "pn", 1);
 		model.put("order", order);
 		model.put("pn", pn);
-        String ipAddr = ClientIp.getIpAddr(request);
+		boolean checkMobile = CheckMobile.checkMobile(request);
+		String ipAddr = ClientIp.getIpAddr(request);
         Visitor visitor = new Visitor(ipAddr,new Date());
         visitorService.saveVisitor(visitor);
         return view(Views.INDEX);

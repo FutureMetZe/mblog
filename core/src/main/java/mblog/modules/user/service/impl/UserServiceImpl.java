@@ -14,6 +14,7 @@ import mblog.base.lang.MtonsException;
 import mblog.base.utils.MD5;
 import mblog.modules.authc.dao.RoleDao;
 import mblog.modules.authc.entity.Role;
+import mblog.modules.blog.dao.PostDao;
 import mblog.modules.user.dao.UserDao;
 import mblog.modules.user.data.AccountProfile;
 import mblog.modules.user.data.BadgesCount;
@@ -45,6 +46,9 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	@Autowired
 	private NotifyService notifyService;
+
+	@Autowired
+	private PostDao postDao;
 
 	@Autowired
 	private RoleDao roleDao;
@@ -192,7 +196,9 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void updatePostSize(Long authorId, String type) {
         User user = userDao.getOne(authorId);
-        user.setPosts(user.getPosts()+1);
+        Integer count = postDao.findPostCountByAuthorId(authorId);
+        user.setPosts(count);
+        userDao.save(user);
 	}
 
 	@Override

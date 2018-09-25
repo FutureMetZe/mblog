@@ -10,6 +10,7 @@ import mblog.modules.blog.data.PostVO;
 import mblog.modules.blog.service.ChannelService;
 import mblog.modules.blog.service.PostService;
 import mblog.modules.user.service.UserService;
+import mblog.shiro.authc.AccountSubject;
 import mblog.web.controller.BaseController;
 import mblog.web.controller.site.Views;
 import org.apache.commons.lang3.StringUtils;
@@ -44,16 +45,18 @@ public class PostController extends BaseController {
 	@GetMapping("/editing")
 	public String view(Long id, ModelMap model) {
 		model.put("channels", channelService.findAll(Consts.STATUS_NORMAL));
-
-		if (null != id && id > 0) {
+        PostVO view = null;
+        Long userId = getSubject().getProfile().getId();
+        if (null != id && id > 0) {
 			AccountProfile profile = getSubject().getProfile();
-			PostVO view = postService.get(id);
-
+			view = postService.get(id);
 			Assert.notNull(view, "该文章已被删除");
 			Assert.isTrue(view.getAuthorId() == profile.getId(), "该文章不属于你");
-			model.put("view", view);
-		}
-
+		} else {
+            view = new PostVO();
+            view.setAuthorId(userId);
+        }
+        model.put("view", view);
 		model.put("channels", channelService.findAll(Consts.STATUS_NORMAL));
 		return view(Views.ROUTE_POST_EDITING);
 	}
