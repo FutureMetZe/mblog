@@ -52,11 +52,14 @@ public class PostController extends BaseController {
 			view = postService.get(id);
 			Assert.notNull(view, "该文章已被删除");
 			Assert.isTrue(view.getAuthorId() == profile.getId(), "该文章不属于你");
+			//替换xml回显标签
+			view.setContent(changeXML(view.getContent()));
 		} else {
             view = new PostVO();
             view.setAuthorId(userId);
         }
-        model.put("view", view);
+
+		model.put("view", view);
 		model.put("channels", channelService.findAll(Consts.STATUS_NORMAL));
 		return view(Views.ROUTE_POST_EDITING);
 	}
@@ -124,4 +127,20 @@ public class PostController extends BaseController {
 		return data;
 	}
 
+
+	/**
+	 * 替换回显标签
+	 * @param content 原回显内容
+	 * @return 替换后回显内容
+	 */
+	public static String changeXML(String content){
+		String lt_ = "&lt;/" ;
+		String newLt_ = "<label></</label>";
+		String lt = "&lt;";
+		String newLt = "<label><</label>";
+		String gt = "&gt;";
+		String newGt = "<label>></label>";
+		content = content.replaceAll(lt_,newLt_).replaceAll(lt,newLt).replaceAll(gt,newGt);
+		return content;
+	}
 }
