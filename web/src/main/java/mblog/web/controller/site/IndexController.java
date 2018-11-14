@@ -43,9 +43,10 @@ public class IndexController extends BaseController{
 		model.put("order", order);
 		model.put("pn", pn);
 		boolean checkMobile = CheckMobile.checkMobile(request);
-		String ipAddr = ClientIp.getIpAddr(request);
-        Visitor visitor = new Visitor(ipAddr,new Date());
-        visitorService.saveVisitor(visitor);
+        //记录访客
+		//String ipAddr = ClientIp.getIpAddr(request);
+		//Visitor visitor = new Visitor(ipAddr,new Date());
+		//visitorService.saveVisitor(visitor);
         return view(Views.INDEX);
 	}
 
