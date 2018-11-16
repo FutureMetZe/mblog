@@ -35,7 +35,7 @@
                                  <#if row.title?length lte 20>
                                      ${row.title!}
                                  <#else>
-                                     ${row.title?substring(1,20)!}...
+                                     ${row.title?substring(0,19)!}...
                                  </#if>
                                <#-- ${row.title?html} -->
                             </p>
