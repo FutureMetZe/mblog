@@ -43,8 +43,8 @@
                         <img src="${base}${profile.avatar}" style="width: 22px;margin-right: 5px; border-radius: 25px;">${profile.username}
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="${base}/user/profile"><i class="fa fa-user fa-fw"></i> Profile</a></li>
-                        <li><a href="${base}/logout"><i class="fa fa-sign-out fa-fw"></i> Log Out</a></li>
+                        <li><a href="${base}/user/profile"><i class="fa fa-user fa-fw"></i> 个人信息</a></li>
+                        <li><a href="${base}/logout"><i class="fa fa-sign-out fa-fw"></i> 退出</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
