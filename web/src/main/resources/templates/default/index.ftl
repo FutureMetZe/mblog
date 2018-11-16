@@ -21,7 +21,13 @@
                     </a>
 
                     <div class="block-contents">
-                        <p class="tit">${row.title?html}
+                        <p class="tit">
+                             <#if row.title?length lte 20>
+                                 ${row.title!}
+                             <#else>
+                                 ${row.title?substring(1,20)!}...
+                             </#if>
+                            <#--${row.title?html}-->
                         </p>
                     </div>
                 </div>
@@ -55,7 +61,15 @@
 
                         <div class="infos">
                             <div class="media-heading">
-                                <@classify row/><a href="${base}/view/${row.id}">${row.title?html}</a>
+                                <@classify row/>
+                                <a href="${base}/view/${row.id}">
+                                     <#if row.title?length lte 20>
+                                         ${row.title!}
+                                     <#else>
+                                         ${row.title?substring(1,20)!}...
+                                     </#if>
+                                    <#--${row.title?html}-->
+                                </a>
                             </div>
                         </div>
                     </li>

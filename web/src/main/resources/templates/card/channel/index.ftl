@@ -31,7 +31,14 @@
                         </a>
 
                         <div class="block-contents">
-                            <p class="tit">${row.title?html}
+                            <p class="tit">
+                                <#if row.title?length lte 20>
+                                    ${row.title!}
+                                <#else>
+                                    ${row.title?substring(1,20)!}...
+                                </#if>
+
+                               <#-- ${row.title?html}-->
                             </p>
                         </div>
                     </div>
