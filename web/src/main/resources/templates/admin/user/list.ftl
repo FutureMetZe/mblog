@@ -23,9 +23,11 @@
                             <th>用户名</th>
                             <th>昵称</th>
                             <th>邮箱</th>
+                            <th>创建时间</th>
+                            <th>上次登录</th>
                             <th>角色</th>
                             <th>状态</th>
-                            <th width="300"></th>
+                            <th width="260"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,6 +37,8 @@
                                 <td>${row.username}</td>
                                 <td>${row.name}</td>
                                 <td>${row.email}</td>
+                                <td>${row.created}</td>
+                                <td>${row.lastLogin}</td>
                                 <td>
                                     <#list row.roles as role>
                             ${role.name}
